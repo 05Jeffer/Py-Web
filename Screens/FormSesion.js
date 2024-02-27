@@ -1,5 +1,4 @@
-import { View, Text, TouchableOpacity,StyleSheet,ScrollView, TextInput} from 'react-native'
-import { StatusBar } from "expo-status-bar"
+import { View, Text, TouchableOpacity,StyleSheet, TextInput} from 'react-native'
 import React from 'react'
 
 const  FormSesion = ()  => {

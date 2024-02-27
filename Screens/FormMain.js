@@ -8,13 +8,21 @@ import { useNavigation } from '@react-navigation/native';
 
   const handleIniciarSesionPress = () => {
     console.log('Iniciar sesión presionado');
-    navigation.navigate('FormSesion');
+    navigation.navigate('Iniciar Sesion');
     // Agrega la lógica para iniciar sesión si es necesario
   };
 
   const handleRegistrarsePress = () => {
     console.log('Exitoso');
-    navigation.navigate('FormReg');  // Navega a la pantalla de Registro
+    navigation.navigate('Registrarse');  // Navega a la pantalla de Registro
+
+    
+  };
+
+  const formulario = () => {
+    console.log('Formulario');
+    navigation.navigate('Descuento');
+    // Agrega la lógica para iniciar sesión si es necesario
   };
   return (
     <View style={styles.container}>
@@ -31,6 +39,9 @@ import { useNavigation } from '@react-navigation/native';
           <Text style={styles.buttonText}> Registrarse </Text>
         </TouchableOpacity>
 
+        <TouchableOpacity style={styles.button} onPress={formulario}>
+          <Text style={styles.buttonText}> descuento </Text>
+        </TouchableOpacity>
       </View>
       </View>
     </View>
@@ -48,7 +59,7 @@ const styles = StyleSheet.create({
   },
     redSection: {
      backgroundColor: 'red', // Fondo rojo para la primera sección
-     paddingVertical: '55%',
+     paddingVertical: '30%',
      justifyContent: 'center',
   },
 
