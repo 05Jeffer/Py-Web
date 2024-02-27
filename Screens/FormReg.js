@@ -1,11 +1,25 @@
-import { View, Text ,} from 'react-native'
-import React from 'react'
-import { TextInput ,StyleSheet} from 'react-native'
-import SelectDropdown from 'react-native-select-dropdown'
-import { TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
+import {  View, Text ,TextInput ,StyleSheet, TouchableOpacity} from 'react-native'
+import { registroUsuario } from '../Api';
 
-const countries = ["Peru", "Canada", "Australia", "Ireland"]
+
 const FormReg = () => {
+  const [data, setData] = useState({
+    id:'',
+    nombre:'',
+    email:'',
+    password:'',
+    pais: '',
+  });
+  
+  const EnviarDatos= async() =>{
+    try{
+    const response = await registroUsuario(data);
+    console.log('Respuesta de la API:', response);
+  } catch (error) {
+    console.error('Error al enviar datos:', error.message);
+  }
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.Tittle}>Registro</Text>
@@ -13,36 +27,30 @@ const FormReg = () => {
       style={styles.input} 
          placeholder="Correo Electronico"
          placeholderTextColor="#546574"
+         value={data.email}
+         onChangeText={(text) => setData({...data, email:text})}
       />
       <TextInput
       style={styles.input} 
          placeholder=" Contraseña"
          placeholderTextColor="#546574"
+         onChangeText={(text) => setData({...data, password:text})}
       />
       <TextInput
       style={styles.input} 
          placeholder="Nombre del Negocio"
          placeholderTextColor="#546574"
+         onChangeText={(text) => setData({...data, nombre:text})}
       />
-      <SelectDropdown 
-        buttonStyle={styles.selectedItem}
-        rowStyle={styles.ItemRow}
-        data={countries}
-        onSelect={(selectedItem, index) => {
-            console.log(selectedItem, index)
-        }}
-        buttonTextAfterSelection={(selectedItem, index) => {
-            // text represented after item is selected
-            // if data array is an array of objects then return selectedItem.property to render after item is selected
-            return selectedItem
-        }}
-        rowTextForSelection={(item, index) => {
-            // text represented for each item in dropdown
-            // if data array is an array of objects then return item.property to represent item in dropdown
-            return item
-        }}
+      
+      <TextInput
+      style={styles.input} 
+         placeholder="Seleccion de Pais"
+         placeholderTextColor="#546574"
+         onChangeText={(text) => setData({...data, pais:text})}
       />
-      <TouchableOpacity style={styles.buttonRegister}>
+
+      <TouchableOpacity style={styles.buttonRegister} onPress={EnviarDatos}>
           <Text style={styles.buttonText}>Registrarse</Text>
       </TouchableOpacity>
     </View>

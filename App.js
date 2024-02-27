@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import StackNavigator from './navegacion/StackNavigator';
 
 
-export default function App() {
+function App() {
   return (
     <View style={{ flex: 1 }}>
       <NavigationContainer>
@@ -14,3 +14,4 @@ export default function App() {
     </View> 
   );
 }
+export default App;
