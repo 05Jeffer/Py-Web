@@ -61,6 +61,7 @@ const Descuento = () => {
               value={datosFormulario.nombre}
               onChangeText={text => setDatosFormulario({ ...datosFormulario, nombre: text })}
             />
+            <View style={styles.iconContainer}>
             <TextInput
               style={styles.input}
               placeholder="Valor"
@@ -68,6 +69,9 @@ const Descuento = () => {
               onChangeText={(numeros) => setDatosFormulario({ ...datosFormulario, valor: numeros })}
               keyboardType="numeric"
             />
+            <Icon name="percent" size={20} color="gray" style={styles.iconoDescuento} />
+            <Icon name="plus" size={20} color="gray" style={styles.iconoSigma} />
+            </View>
             <View style={styles.botonesContainer}>
               <TouchableOpacity onPress={enviarFormulario} style={[styles.boton, { fontSize: 20, height: 50 }]}>
                 <Text style={styles.texto}>Enviar</Text>
@@ -101,6 +105,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    
   },
   modalContent: {
     backgroundColor: 'white',
@@ -115,15 +120,25 @@ const styles = StyleSheet.create({
     marginBottom: 25,
   },
   input: {
-    height: 60, // Ajusta el tamaño del campo de entrada
-    borderColor: 'gray',
-    borderWidth: 2,
-    marginBottom: 20, // Ajusta el espacio entre los campos de entrada
-    paddingHorizontal: 10,
-    fontSize: 20, // Ajusta el tamaño del texto dentro del campo de entrada
-    marginRight: 10, // Espacio entre el TextInput y el porcentaje
-    paddingLeft: 10,
-    position: 'relative', 
+    marginBottom: 25,
+    fontSize: 17,
+    borderBottomWidth: 1, // Cambiado de borderWidth
+    borderBottomColor: 'red', // Cambiado de borderColor
+    height: 40,
+    color: '#546574',
+    padding: 10,
+    borderRadius: 5,
+  },
+  valorInput:{
+    flex:1,
+    marginBottom: 25,
+    fontSize: 17,
+    borderBottomWidth: 1, // Cambiado de borderWidth
+    borderBottomColor: 'red', // Cambiado de borderColor
+    height:40,
+    color: '#546574',
+    padding: 10,
+    borderRadius: 5,
   },
   botonesContainer: {
     flexDirection: 'row',
@@ -157,6 +172,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 20,
     color:'gray',
+  },
+  iconContainer:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderColor: 'gray',
+  },
+  iconoDescuento: {
+    marginRight: 5,
+  },
+  iconoSigma: {
+    marginRight: 5,
   },
 });
 

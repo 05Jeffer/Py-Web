@@ -1,17 +1,14 @@
-const API = "http://localhost:3000/registro";
+const API = 'http://192.168.101.12:3000';
 
 export const registroUsuario = async (datosUsuario) => {
   try {
-    console.log('Antes de la llamada a fetch');
-    const response = await fetch(API, {
+    const response = await fetch(`${API}/registro`,{
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(datosUsuario),
     });
-    console.log('Después de la llamada a fetch');
-
     if (!response.ok) {
       const errorData = await response.json(); // Obtener detalles del error desde el cuerpo de la respuesta
       const errorMessage = errorData.message || 'Error desconocido en la solicitud';
