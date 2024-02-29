@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, TouchableOpacity, StyleSheet, Modal, Text, TextInput, Button } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+
+
 const Descuento = () => {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [datosFormulario, setDatosFormulario] = useState({
@@ -69,8 +71,10 @@ const Descuento = () => {
               onChangeText={(numeros) => setDatosFormulario({ ...datosFormulario, valor: numeros })}
               keyboardType="numeric"
             />
+            <TouchableOpacity>
             <Icon name="percent" size={20} color="gray" style={styles.iconoDescuento} />
-            <Icon name="plus" size={20} color="gray" style={styles.iconoSigma} />
+            <Icon name="sigma" size={20} color="gray" style={styles.iconoSigma} />
+            </TouchableOpacity>
             </View>
             <View style={styles.botonesContainer}>
               <TouchableOpacity onPress={enviarFormulario} style={[styles.boton, { fontSize: 20, height: 50 }]}>

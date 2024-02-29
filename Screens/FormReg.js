@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {  View, Text ,TextInput ,StyleSheet, TouchableOpacity, Alert} from 'react-native'
+import {  View, Text ,TextInput ,StyleSheet, TouchableOpacity} from 'react-native'
 import { registroUsuario } from '../Api';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Modal from 'react-native-modal';
